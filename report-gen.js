@@ -84,6 +84,27 @@ function GenerateCompanyKeyStats(data) {
     console.log(prettyJson.render(formattedObj, options));
 }
 
+function GetEarningsReport(data) {
+    var compiledList = [];
+    data.forEach(element => {
+        compiledList.push({
+            'actualEPS' : element.actualEPS,
+            'consensusEPS' : element.consensusEPS,
+            'estimatedEPS': element.estimatedEPS,
+            'numberOfEstimates': element.numberOfEstimates,
+            'EPSSurpriseDollar': element.EPSSurpriseDollar,
+            'EPSReportDate': element.EPSReportDate,
+            'fiscalPeriod': element.fiscalPeriod,
+            'fiscalEndDate': element.fiscalEndDate,
+            'yearAgo': element.yearAgo,
+            'yearAgoChangePercent': numeral(element.yearAgoChangePercent).format('0.0000%'),
+            'estimatedChangePercent': numeral(element.estimatedChangePercent).format('0.0000%'),
+        });
+    });
+
+    console.log(prettyJson.render(compiledList.reverse(),options));
+}
+
 function FormatDate(date) {
     if (date) {
         return date.substring(4, 6) + '-' + date.substring(6) + '-' + date.substring(0, 4);
@@ -93,5 +114,6 @@ function FormatDate(date) {
 module.exports = {
     GenerateStockReport,
     GenerateCompanyReport,
-    GenerateCompanyKeyStats
+    GenerateCompanyKeyStats,
+    GetEarningsReport
 }

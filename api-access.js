@@ -5,7 +5,8 @@ const baseUrl = 'https://api.iextrading.com/1.0/stock/';
 const areaUrl = {
   dynamicStock:  '/chart/dynamic',
   companyInfo: '/company',
-  stats: '/stats'
+  stats: '/stats',
+  earnings: '/earnings'
 };
 
 function GetDynamicData(symbol) {
@@ -41,8 +42,20 @@ function GetKeyStats(symbol) {
     });
 }
 
+function GetEarnings(symbol) {
+    return new Promise((resolve, reject) => {
+        request(baseUrl + symbol + areaUrl.earnings, {
+            json: true }, 
+            (err, res, body) => {
+            if (err) { reject(err); }
+            resolve(body);
+        });
+    });
+}
+
 module.exports = {
     GetDynamicData,
     GetCompanyInfo,
-    GetKeyStats
+    GetKeyStats,
+    GetEarnings
 };
