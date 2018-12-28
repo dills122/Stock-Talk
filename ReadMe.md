@@ -19,16 +19,19 @@ node ./stock-talk.js [command] [symbol] [optional-flags]
 
 1. `stock` : Gets the current information on the submitted symbol
    * Flags
-     * `-f` : Full mode display (default)
-     * `-s` : Squashed mode, less data points
+     * `-f --full` : Full mode display (default)
+     * `-s --squashed` : Squashed mode, less data points
+2. `company` : Returns information pertaining to the company
+   * Flags
+     * `-s --stats` : Returns key stats related to the company
+     * `-e --earnings` : Returns most recent earning reports
 
 > Currently still under construction with plans of expanding available supported commands.
 
 ## Planned Commands
 
-1. `company` : Returns information pertaining to the company
-2. `compare` : Compare two stocks
-3. `time` : Gets information over specified time span
+1. `compare` : Compare two stocks
+2. `time` : Gets information over specified time span
 
 ## Built With
 
