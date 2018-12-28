@@ -17,9 +17,11 @@ program
     .option('-f, --full', 'Full information listing')
     .option('-s, --squashed', 'Shorted information listing')
     .action((symbol, cmd) => {
-        GetDynamicData(symbol).then((value) => {         
-            GenerateStockReport(value.data, cmd.squashed ? 's' : 'f');
-            //console.log(underscore.last(value.data));
+        GetDynamicData(symbol).then((value) => {
+            //Gets only the most recent value
+            GenerateStockReport(underscore.last(value.data), cmd.squashed ? 's' : 'f');
+        }).catch(error => {
+            console.log("We have encountered an error " + error);
         });
     });
 
