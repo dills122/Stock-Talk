@@ -1,0 +1,15 @@
+{
+  "name": "stock-cli",
+  "version": "0.0.1",
+  "description": "A Cli for stock information",
+  "main": "index.js",
+  "author": "Dylan Steele",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "numeral": "^2.0.6",
+    "prettyjson": "^1.2.1",
+    "request": "^2.88.0",
+    "underscore": "^1.9.1"
+  }
+}
