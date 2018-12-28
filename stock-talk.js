@@ -1,11 +1,16 @@
 const program = require('commander');
+const underscore = require('underscore');
+
 const {
-    GetDynamicData
+    GetDynamicData,
+    GetCompanyInfo,
+    GetKeyStats
 } = require('./api-access.js');
 const {
-    GenerateStockReport
+    GenerateStockReport,
+    GenerateCompanyReport,
+    GenerateCompanyKeyStats
 } = require('./report-gen.js');
-const underscore = require('underscore');
 
 program
     .version('0.0.1')
@@ -23,6 +28,26 @@ program
         }).catch(error => {
             console.log("We have encountered an error " + error);
         });
+    });
+
+program
+    .command('company <symbol>')
+    .alias('c')
+    .option('-s --stats', 'get key stats info')
+    .action((symbol, cmd) => {
+        if (cmd.stats) {
+            GetKeyStats(symbol).then((response) => {
+                GenerateCompanyKeyStats(response);
+            }).catch((error) => {
+                console.log("We have encountered an error " + error);
+            });
+        } else {
+            GetCompanyInfo(symbol).then((response) => {
+                GenerateCompanyReport(response);
+            }).catch((error) => {
+                console.log("We have encountered an error " + error);
+            });
+        }
     });
 
 program.parse(process.argv);
