@@ -6,14 +6,14 @@ const {
     GetCompanyInfo,
     GetKeyStats,
     GetEarnings
-} = require('./api-access.js');
+} = require('./src/api-access.js');
 
 const {
     GenerateStockReport,
     GenerateCompanyReport,
     GenerateCompanyKeyStats,
     GetEarningsReport
-} = require('./report-gen.js');
+} = require('./src/report-gen.js');
 
 program
     .version('0.1.0')

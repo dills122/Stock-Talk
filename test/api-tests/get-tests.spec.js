@@ -2,7 +2,7 @@ const assert = require('assert');
 const mocha = require('mocha');
 const chai = require('chai');
 const underscore = require('underscore');
-const api = require('../../api-access.js');
+const api = require('../../src/api-access.js');
 const expect = chai.expect;
 
 
