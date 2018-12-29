@@ -1,5 +1,9 @@
 # Stock Talk CLI
 
+**Build Status**
+
+[![Build Status](https://travis-ci.com/dills122/Stock-Talk.svg?branch=master)](https://travis-ci.com/dills122/Stock-Talk)
+
 Stock Talk is a CLI tool used to get up to date trading information.
 
 ## API
