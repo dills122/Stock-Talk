@@ -15,6 +15,10 @@ const {
     GetEarningsReport
 } = require('./src/report-gen.js');
 
+const {
+    CompareStocks
+} = require('./src/compare-stocks.js');
+
 program
     .version('0.1.0')
     .description('Stock info at your terminal');
@@ -35,7 +39,7 @@ program
 
 program
     .command('company <symbol>')
-    .alias('c')
+    .alias('i')
     .option('-s --stats', 'get key stats info')
     .option('-e --earnings', 'get the most recent earning reports')
     .action((symbol, cmd) => {
@@ -59,6 +63,14 @@ program
                 console.log("We have encountered an error " + error);
             });
         }
+    });
+
+
+program
+    .command('compare <symbolOne> <symbolTwo>')
+    .alias('c')
+    .action((symbolOne, symbolTwo) => {
+        CompareStocks(symbolOne,symbolTwo);
     });
 
 program.parse(process.argv);

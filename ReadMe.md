@@ -29,13 +29,15 @@ node ./stock-talk.js [command] [symbol] [optional-flags]
    * Flags
      * `-s --stats` : Returns key stats related to the company
      * `-e --earnings` : Returns most recent earning reports
+3. `compare` : Compares two stocks key stats
+   * **currently only compares market caps**
+
 
 > Currently still under construction with plans of expanding available supported commands.
 
 ## Planned Commands
 
-1. `compare` : Compare two stocks
-2. `time` : Gets information over specified time span
+1. `time` : Gets information over specified time span
 
 ## Built With
 
