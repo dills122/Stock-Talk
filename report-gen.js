@@ -11,7 +11,7 @@ function GenerateStockReport(stockInfo, type) {
 
     function fullReport(stockInfo) {
         return {
-            'date': FormatDate(stockInfo.date),
+            'date': stockInfo.date,
             'high': numeral(stockInfo.high).format('$0,0.00'),
             'low': numeral(stockInfo.low).format('$0,0.00'),
             'average': numeral(stockInfo.average).format('$0,0.00'),
@@ -29,7 +29,7 @@ function GenerateStockReport(stockInfo, type) {
 
     function squashedReport(stockInfo) {
         return {
-            'date': FormatDate(stockInfo.date),
+            'date': stockInfo.date,
             'high': numeral(stockInfo.high).format('$0,0.00'),
             'low': numeral(stockInfo.low).format('$0,0.00'),
             'average': numeral(stockInfo.average).format('$0,0.00'),
@@ -103,12 +103,6 @@ function GetEarningsReport(data) {
     });
 
     console.log(prettyJson.render(compiledList.reverse(),options));
-}
-
-function FormatDate(date) {
-    if (date) {
-        return date.substring(4, 6) + '-' + date.substring(6) + '-' + date.substring(0, 4);
-    }
 }
 
 module.exports = {
