@@ -1,6 +1,6 @@
 {
   "name": "stock-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Cli for stock information",
   "main": "index.js",
   "author": "Dylan Steele",
