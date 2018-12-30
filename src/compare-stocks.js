@@ -5,7 +5,7 @@ const {
 } = require('./api-access');
 
 const {
-    renderHeader
+    RenderHeader
 } = require('./render-helpers');
 
 const options = {
@@ -30,13 +30,13 @@ function CompareStocks(stockOne, stockTwo) {
             'Market-Cap-Two': numeral(stocks.stockTwo.marketcap).format('$0,0a'),
             'Difference': numeral(calculateChange(stocks.stockOne.marketcap, stocks.stockTwo.marketcap)).format('0.000%')
         };
-        renderHeader('Market Cap Comparison');
+        RenderHeader('Market Cap Comparison');
         console.log(prettyJson.render(marketCapCompare, options));
         var cashCompareObj = CompareCash(stocks.stockOne, stocks.stockTwo);
-        renderHeader('Cash Reserves\' Comparison');
+        RenderHeader('Cash Reserves\' Comparison');
         console.log(prettyJson.render(cashCompareObj, options));
 
-        renderHeader('P\\E Ratio Comparison');
+        RenderHeader('P\\E Ratio Comparison');
         var peCompareObj = ComparePE(stocks.stockOne, stocks.stockTwo);
         console.log(prettyJson.render(peCompareObj, options));
     });
