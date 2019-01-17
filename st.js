@@ -1,3 +1,4 @@
+(() => {
 const program = require('commander');
 var array = require('lodash/array');
 
@@ -15,6 +16,10 @@ const {
     GenerateEarningsReport,
     WriteReport
 } = require('./src/report-gen.js');
+    
+if (process.argv.length <= 2) {
+    console.log("need to have command args");
+}
 
 program
     .version('0.1.0')
@@ -67,3 +72,4 @@ program
     });
 
 program.parse(process.argv);
+})();
