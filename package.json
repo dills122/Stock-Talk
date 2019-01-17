@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Dylan Steele",
   "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "st": "./bin/global.js"
+  },
   "scripts": {
     "test": "mocha \"./test/**/*.spec.js\""
   },

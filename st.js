@@ -1,3 +1,4 @@
+(() => {
 const program = require('commander');
 const underscore = require('underscore');
 
@@ -62,3 +63,4 @@ program
     });
 
 program.parse(process.argv);
+})();
