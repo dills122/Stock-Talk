@@ -11,10 +11,10 @@
   "dependencies": {
     "chai": "^4.2.0",
     "commander": "^2.19.0",
+    "lodash": "^4.17.11",
     "numeral": "^2.0.6",
     "prettyjson": "^1.2.1",
-    "request": "^2.88.0",
-    "underscore": "^1.9.1"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0"

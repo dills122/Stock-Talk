@@ -7,7 +7,7 @@ const options = {
 
 function GenerateStockReport(stockInfo, type) {
 
-    console.log(prettyJson.render(type === 'f' ? fullReport(stockInfo) : squashedReport(stockInfo), options));
+    return type === 'f' ? fullReport(stockInfo) : squashedReport(stockInfo);
 
     function fullReport(stockInfo) {
         return {
@@ -52,7 +52,7 @@ function GenerateCompanyReport(data) {
         tags: data.tags
     };
 
-    console.log(prettyJson.render(formattedObj, options));
+    return formattedObj;
 }
 
 function GenerateCompanyKeyStats(data) {
@@ -81,10 +81,13 @@ function GenerateCompanyKeyStats(data) {
         'profitMargin': numeral(data.profitMargin).format('0.00')
     };
 
-    console.log(prettyJson.render(formattedObj, options));
+    return formattedObj;
 }
 
-function GetEarningsReport(data) {
+function GenerateEarningsReport(data) {
+    if(Object.keys(data).length === 0 || !data) {
+        return [];
+    }
     var compiledList = [];
     data.forEach(element => {
         compiledList.push({
@@ -102,12 +105,17 @@ function GetEarningsReport(data) {
         });
     });
 
-    console.log(prettyJson.render(compiledList.reverse(),options));
+    return compiledList.reverse();
+}
+
+function WriteReport(data) {
+    console.log(prettyJson.render(data, options));
 }
 
 module.exports = {
     GenerateStockReport,
     GenerateCompanyReport,
     GenerateCompanyKeyStats,
-    GetEarningsReport
+    GenerateEarningsReport,
+    WriteReport
 }

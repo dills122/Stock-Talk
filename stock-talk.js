@@ -1,5 +1,5 @@
 const program = require('commander');
-const underscore = require('underscore');
+var array = require('lodash/array');
 
 const {
     GetDynamicData,
@@ -12,7 +12,8 @@ const {
     GenerateStockReport,
     GenerateCompanyReport,
     GenerateCompanyKeyStats,
-    GetEarningsReport
+    GenerateEarningsReport,
+    WriteReport
 } = require('./src/report-gen.js');
 
 program
@@ -27,7 +28,8 @@ program
     .action((symbol, cmd) => {
         GetDynamicData(symbol).then((value) => {
             //Gets only the most recent value
-            GenerateStockReport(underscore.last(value.data), cmd.squashed ? 's' : 'f');
+            let report = GenerateStockReport(array.last(value.data), cmd.squashed ? 's' : 'f');
+            WriteReport(report);
         }).catch(error => {
             console.log("We have encountered an error " + error);
         });
@@ -42,19 +44,22 @@ program
 
         if (cmd.stats) {
             GetKeyStats(symbol).then((response) => {
-                GenerateCompanyKeyStats(response);
+                let report = GenerateCompanyKeyStats(response);
+                WriteReport(report);
             }).catch((error) => {
                 console.log("We have encountered an error " + error);
             });
         } else if (cmd.earnings) {
             GetEarnings(symbol).then((response) => {
-                GetEarningsReport(response.earnings);
+                let report = GenerateEarningsReport(response.earnings);
+                WriteReport(report);
             }).catch((error) => {
                 console.log("We have encountered an error " + error);
             });
         } else {
             GetCompanyInfo(symbol).then((response) => {
-                GenerateCompanyReport(response);
+                let report = GenerateCompanyReport(response);
+                WriteReport(report);
             }).catch((error) => {
                 console.log("We have encountered an error " + error);
             });

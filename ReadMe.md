@@ -43,4 +43,4 @@ node ./stock-talk.js [command] [symbol] [optional-flags]
 * [Numeral](https://github.com/adamwdraper/Numeral-js)
 * [Prettyjson](https://github.com/rafeca/prettyjson)
 * [Request](https://github.com/request/request)
-* [Underscore](https://github.com/jashkenas/underscore)
+* [Lodash](https://github.com/lodash/lodash/)
