@@ -2,7 +2,7 @@
 
 **Build Status**
 
-[![Build Status](https://travis-ci.com/dills122/Stock-Talk.svg?branch=master)](https://travis-ci.com/dills122/Stock-Talk)
+[![Build Status](https://travis-ci.com/dills122/Stock-Talk.svg?branch=master)](https://travis-ci.com/dills122/Stock-Talk) [![CodeFactor](https://www.codefactor.io/repository/github/dills122/stock-talk/badge)](https://www.codefactor.io/repository/github/dills122/stock-talk)
 
 Stock Talk is a CLI tool used to get up to date trading information.
 
