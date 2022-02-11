@@ -1,0 +1,22 @@
+name: CI Job
+
+on:
+  pull_request:
+    types: [synchronize, opened, reopened]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm test
+  automerge:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: fastify/github-action-merge-dependabot@v2.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
