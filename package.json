@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
-    "commander": "^9.0.0",
+    "commander": "^9.1.0",
     "lodash": "^4.17.21",
     "numeral": "^2.0.6",
     "prettyjson": "^1.2.1",
